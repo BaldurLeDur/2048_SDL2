@@ -2,6 +2,7 @@ class Cell {
 private:
 	int value;
 
+
 public:
 	SDL_Color color;
 
@@ -9,7 +10,9 @@ public:
 
 	static std::map<int, std::string> imageMap;
 
+
 	Cell() : value(0), color({ 255, 255, 255, 255 }) {}
+
 
 	void display() const;
 
@@ -18,4 +21,5 @@ public:
 	void setValue(int val);
 
 	bool isEmpty() const;
+
 };
