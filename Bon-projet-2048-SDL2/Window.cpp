@@ -152,11 +152,11 @@ int Window::checkLoose() {
             }
 
             if (i < size - 1 && board[i][j].getValue() == board[i + 1][j].getValue()) {
-                return 0;  // Si deux cellules adjacentes ont la même valeur, le jeu continue
+                return 0;  // Si deux cellules adjacentes ont la mÃªme valeur, le jeu continue
             }
 
             if (j < size - 1 && board[i][j].getValue() == board[i][j + 1].getValue()) {
-                return 0;  // Si deux cellules adjacentes ont la même valeur, le jeu continue
+                return 0;  // Si deux cellules adjacentes ont la mÃªme valeur, le jeu continue
             }
         }
     }
@@ -183,7 +183,7 @@ void Window::imageLoose(SDL_Renderer* renderer, int x, int y, int width, int hei
         SDL_Texture* imageTexture = SDL_CreateTextureFromSurface(renderer, imageLoose);
 
         if (!imageTexture) {
-            printf("Erreur lors de la création de la texture : %s", SDL_GetError());
+            printf("Erreur lors de la crÃ©ation de la texture : %s", SDL_GetError());
         }
         else {
             SDL_RenderCopy(renderer, imageTexture, NULL, &rect);
@@ -207,7 +207,7 @@ void Window::imageWin(SDL_Renderer* renderer, int x, int y, int width, int heigh
         SDL_Texture* imageTexture = SDL_CreateTextureFromSurface(renderer, imageLoose);
 
         if (!imageTexture) {
-            printf("Erreur lors de la création de la texture : %s", SDL_GetError());
+            printf("Erreur lors de la crÃ©ation de la texture : %s", SDL_GetError());
         }
         else {
             SDL_RenderCopy(renderer, imageTexture, NULL, &rect);
