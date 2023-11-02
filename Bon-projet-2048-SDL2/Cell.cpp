@@ -1,6 +1,3 @@
-#include <iostream>
-#include <SDL.h>
-#include <map>
 #include "Cell.h"
 
 std::map<int, SDL_Color> Cell::colorMap = {
@@ -19,18 +16,18 @@ std::map<int, SDL_Color> Cell::colorMap = {
 };
 
 std::map<int, std::string> Cell::imageMap = {
-    {0, "../img/TileTwo.bmp"},
+    {0, "../img/TileZero.bmp"},
     {2, "../img/TileTwo.bmp"},
-    {4, "../img/TileTwo.bmp"},
-    {8, "../img/TileTwo.bmp"},
-    {16, "../img/TileTwo.bmp"},
-    {32, "../img/TileTwo.bmp"},
-    {64, "../img/TileTwo.bmp"},
-    {128, "../img/TileTwo.bmp"},
-    {256, "../img/TileTwo.bmp"},
-    {512, "../img/TileTwo.bmp"},
-    {1024, "../img/TileTwo.bmp"},
-    {2048, "../img/TileTwo.bmp"},
+    {4, "../img/TileFour.bmp"},
+    {8, "../img/TileEight.bmp"},
+    {16, "../img/TileSixteen.bmp"},
+    {32, "../img/TileThirtyTwo.bmp"},
+    {64, "../img/TileSixtyFour.bmp"},
+    {128, "../img/TileOneHundred.bmp"},
+    {256, "../img/TileTwoHundred.bmp"},
+    {512, "../img/TileFiveHundred.bmp"},
+    {1024, "../img/TileOneHundred.bmp"},
+    {2048, "../img/TileTwoHundred.bmp"},
 };
 
 void Cell::display() const {
