@@ -1,6 +1,3 @@
-#include <iostream>
-#include <cstdlib>
-#include <ctime>
 #include "Window.h"
 #include "Cell.h"
 #include "GameObject.h"
@@ -25,7 +22,8 @@ void Window::printBoard() const {
     for (int i = 0; i < size; i++) {
         for (int j = 0; j < size; j++) {
             GameObject tile(j * (CELL_SIZE + spacement), i * (CELL_SIZE + spacement), CELL_SIZE, CELL_SIZE);
-            tile.draw(renderer, board[i][j], tile.x, tile.y, tile.width, tile.height);
+            //tile.draw(renderer, board[i][j], tile.x, tile.y, tile.width, tile.height);
+            tile.drawImage(renderer, board[i][j], tile.x, tile.y, tile.width, tile.height);
         }
     }
 }
@@ -176,7 +174,7 @@ SDL_Renderer* Window::getRenderer() {
 }
 
 void Window::clear() {
-    SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255); // Couleur noire
+    SDL_SetRenderDrawColor(renderer, 255, 182, 183, 255); // Couleur noire
     SDL_RenderClear(renderer);
 }
 

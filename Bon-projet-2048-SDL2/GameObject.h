@@ -1,7 +1,6 @@
+#pragma once
 
-#ifndef GAMEOBJECT_H
-#define GAMEOBJECT_H
-
+#include<iostream>
 #include <SDL.h>
 #include "Cell.h" 
 // Assurez-vous d'inclure les fichiers nécessaires.
@@ -14,5 +13,3 @@ public:
     void drawImage(SDL_Renderer* renderer, const Cell& cell, int x, int y, int width, int height);
     void draw(SDL_Renderer* renderer, const Cell& cell, int x, int y, int width, int height);
 };
-
-#endif // GAMEOBJECT_H

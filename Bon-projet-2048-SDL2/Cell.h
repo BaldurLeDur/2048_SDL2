@@ -1,3 +1,9 @@
+#pragma once
+
+#include <iostream>
+#include <SDL.h>
+#include <map>
+
 class Cell {
 private:
 	int value;

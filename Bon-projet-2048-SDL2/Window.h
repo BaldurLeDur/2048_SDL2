@@ -1,8 +1,9 @@
-#ifndef WINDOW_H
-#define WINDOW_H
+#pragma once
 
+#include <iostream>
 #include <SDL.h>
 #include <vector>
+#include <cstdlib>
 #include "Cell.h"
 
 class Window {
@@ -30,5 +31,3 @@ public:
     void clear();
     bool isOpen();
 };
-
-#endif // WINDOW_H
