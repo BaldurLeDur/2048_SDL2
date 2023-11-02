@@ -135,7 +135,7 @@ int Window::checkWin() {
     //  si 2048 atteind win
     for (int i = 0; i < size; i++) {
         for (int j = 0; j < size; j++) {
-            if (board[i][j].getValue() == 16) {
+            if (board[i][j].getValue() == 2048) {
                 std::cout << "WIN !!! 2^11 HAS BEEN REACHED" << std::endl;
                 return 1;
             }

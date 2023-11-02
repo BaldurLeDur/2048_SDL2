@@ -24,31 +24,23 @@ int main(int argc, char* args[]) {
                 switch (e.key.keysym.sym) {
                 case SDLK_LEFT:
                     window.leftAction();
-                    window.checkWin();
-                    window.checkLoose();
-                    window.addRandomTile();
                     break;
                 case SDLK_RIGHT:
                     window.rightAction();
-                    window.checkWin();
-                    window.checkLoose();
-                    window.addRandomTile();
                     break;
                 case SDLK_UP:
                     window.topAction();
-                    window.checkWin();
-                    window.checkLoose();
-                    window.addRandomTile();
                     break;
                 case SDLK_DOWN:
                     window.bottomAction();
-                    window.checkWin();
-                    window.checkLoose();
-                    window.addRandomTile();
                     break;
                 default:
                     break;
                 }
+
+                window.checkWin();
+                window.checkLoose();
+                window.addRandomTile();
             }
             else if (window.checkLoose() == 1) {
                 while (true) {
