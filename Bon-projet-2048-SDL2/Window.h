@@ -14,6 +14,7 @@ private:
     int size;
     int width;
     int height;
+    
 
 public:
     Window(int width, int height, int n);
@@ -24,8 +25,10 @@ public:
     void rightAction();
     void topAction();
     void bottomAction();
-    void checkWin();
-    void checkLoose();
+    int checkWin();
+    int checkLoose();
+    void imageLoose(SDL_Renderer* renderer, int x, int y, int width, int height);
+    void imageWin(SDL_Renderer* renderer, int x, int y, int width, int height);
     void display();
     SDL_Renderer* getRenderer();
     void clear();

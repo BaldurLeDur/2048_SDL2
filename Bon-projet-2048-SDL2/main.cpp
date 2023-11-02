@@ -1,5 +1,6 @@
 #include <iostream>
 #include <SDL.h>
+#include <Windows.h>
 #include "Window.h"
 #include "GameObject.h"
 
@@ -49,14 +50,21 @@ int main(int argc, char* args[]) {
                     break;
                 }
             }
-            else if (e.type == SDL_QUIT) {
-                window.display();
-                return 0;
+            else if (window.checkLoose() == 1) {
+                while (true) {
+                    window.imageLoose(window.getRenderer(), 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
+                    window.display();
+                }
+                
+            }
+            else if (window.checkWin() == 1) {
+                while (true) {
+                    window.imageWin(window.getRenderer(), 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
+                    window.display();
+                }
             }
         }
-
         window.display();
     }
-
     return 0;
 }

@@ -22,7 +22,6 @@ void Window::printBoard() const {
     for (int i = 0; i < size; i++) {
         for (int j = 0; j < size; j++) {
             GameObject tile(j * (CELL_SIZE + spacement), i * (CELL_SIZE + spacement), CELL_SIZE, CELL_SIZE);
-            //tile.draw(renderer, board[i][j], tile.x, tile.y, tile.width, tile.height);
             tile.drawImage(renderer, board[i][j], tile.x, tile.y, tile.width, tile.height);
         }
     }
@@ -132,37 +131,92 @@ void Window::bottomAction() {
     }
 }
 
-void Window::checkWin() {
+int Window::checkWin() {
     //  si 2048 atteind win
     for (int i = 0; i < size; i++) {
         for (int j = 0; j < size; j++) {
-            if (board[i][j].getValue() == 2048) {
+            if (board[i][j].getValue() == 16) {
                 std::cout << "WIN !!! 2^11 HAS BEEN REACHED" << std::endl;
-                return;
+                return 1;
             }
         }
     }
 }
 
-void Window::checkLoose() {
-    int loose = 0;
-
+int Window::checkLoose() {
+    int emptyCells = 0;
     for (int i = 0; i < size; i++) {
         for (int j = 0; j < size; j++) {
             if (board[i][j].isEmpty()) {
-                return; // si case vide, le jeu n'est pas perdu
+                emptyCells++;
             }
 
             if (i < size - 1 && board[i][j].getValue() == board[i + 1][j].getValue()) {
-                return; // si tuile fusionnable en bas, le jeu n'est pas perdu
+                return 0;  // Si deux cellules adjacentes ont la même valeur, le jeu continue
             }
 
             if (j < size - 1 && board[i][j].getValue() == board[i][j + 1].getValue()) {
-                return; //si tuile fusionnable à droite, le jeu n'est pas perdu
+                return 0;  // Si deux cellules adjacentes ont la même valeur, le jeu continue
             }
         }
     }
-    std::cout << "\nYOU LOSE !!!" << std::endl;
+
+    if (emptyCells == 0) {
+        std::cout << "\nYOU LOSE !!!" << std::endl;
+        return 1;
+    }
+
+    return 0;  // Le jeu continue
+}
+
+
+
+void Window::imageLoose(SDL_Renderer* renderer, int x, int y, int width, int height) {
+    SDL_Rect rect = { x, y, width, height };
+    SDL_Surface* imageLoose = SDL_LoadBMP("../img/LooseScreen.bmp");
+
+    if (!imageLoose) {
+
+        printf("Erreur lors du chargement de l'image : %s", SDL_GetError());
+    }
+    else {
+        SDL_Texture* imageTexture = SDL_CreateTextureFromSurface(renderer, imageLoose);
+
+        if (!imageTexture) {
+            printf("Erreur lors de la création de la texture : %s", SDL_GetError());
+        }
+        else {
+            SDL_RenderCopy(renderer, imageTexture, NULL, &rect);
+
+            SDL_FreeSurface(imageLoose);
+
+            SDL_DestroyTexture(imageTexture);
+        }
+    }
+}
+
+void Window::imageWin(SDL_Renderer* renderer, int x, int y, int width, int height) {
+    SDL_Rect rect = { x, y, width, height };
+    SDL_Surface* imageLoose = SDL_LoadBMP("../img/WinScreen.bmp");
+
+    if (!imageLoose) {
+
+        printf("Erreur lors du chargement de l'image : %s", SDL_GetError());
+    }
+    else {
+        SDL_Texture* imageTexture = SDL_CreateTextureFromSurface(renderer, imageLoose);
+
+        if (!imageTexture) {
+            printf("Erreur lors de la création de la texture : %s", SDL_GetError());
+        }
+        else {
+            SDL_RenderCopy(renderer, imageTexture, NULL, &rect);
+
+            SDL_FreeSurface(imageLoose);
+
+            SDL_DestroyTexture(imageTexture);
+        }
+    }
 }
 
 void Window::display() {
