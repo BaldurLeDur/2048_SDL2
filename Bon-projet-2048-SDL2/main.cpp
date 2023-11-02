@@ -20,6 +20,7 @@ int main(int argc, char* args[]) {
         window.printBoard();
 
         while (SDL_PollEvent(&e)) {
+            // récupère les key des touches pressées.
             if (e.type == SDL_KEYDOWN) {
                 switch (e.key.keysym.sym) {
                 case SDLK_LEFT:

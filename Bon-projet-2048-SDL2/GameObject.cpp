@@ -3,19 +3,6 @@
 
 GameObject::GameObject(int x, int y, int width, int height) : x(x), y(y), width(width), height(height) {}
 
-void GameObject::draw(SDL_Renderer* renderer, const Cell& cell, int x, int y, int width, int height) {
-    SDL_Rect rect = { x, y, width, height };
-    SDL_Color color;
-    auto it = cell.colorMap.find(cell.getValue());
-    if (it != cell.colorMap.end()) {
-        color = it->second;
-    }
-    else {
-        color = cell.colorMap.at(0); // Couleur par défaut si la valeur n'est pas trouvée
-    }
-    SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, color.a);
-    SDL_RenderFillRect(renderer, &rect);
-}
 
 void GameObject::drawImage(SDL_Renderer* renderer, const Cell& cell, int x, int y, int width, int height) {
     SDL_Rect rect = { x, y, width, height };
