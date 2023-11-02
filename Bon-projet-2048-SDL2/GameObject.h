@@ -8,7 +8,6 @@
 class GameObject {
 public:
     int x, y, width, height;
-    int R, G, B;
     GameObject(int x, int y, int width, int height);
     void drawImage(SDL_Renderer* renderer, const Cell& cell, int x, int y, int width, int height);
     void draw(SDL_Renderer* renderer, const Cell& cell, int x, int y, int width, int height);
