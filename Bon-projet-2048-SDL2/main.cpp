@@ -13,14 +13,14 @@ int main(int argc, char* args[]) {
     window.addRandomTile();
     window.addRandomTile();
 
-    SDL_Event e; // Vous avez besoin de cet événement pour gérer les événements SDL
+    SDL_Event e; // gÃ¨re les events de la sdl avec les touches
 
     while (window.isOpen()) {
         window.clear();
         window.printBoard();
 
         while (SDL_PollEvent(&e)) {
-            // récupère les key des touches pressées.
+            // rÃ©cupÃ¨re les key des touches pressÃ©es.
             if (e.type == SDL_KEYDOWN) {
                 switch (e.key.keysym.sym) {
                 case SDLK_LEFT:
